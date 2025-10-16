@@ -12,10 +12,10 @@ const SignUpForm = () => {
 
     return (
         <form action={action}>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 w-64">
             
         <div>
-            <Label htmlFor="username">Account name</Label>
+            <Label htmlFor="username">Username</Label>
             <Input id="username" name="username" placeholder="john_doe" />
         </div>
 

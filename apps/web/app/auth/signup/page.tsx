@@ -8,11 +8,12 @@ const SignUpPage = () => {
       <h1 className="text-center text-2xl font-bold mb-4">Sign Up Page</h1>
       
       <SignUpForm />
+      <hr />
 
       <div className="flex p-2 justify-between text-sm">
         <p>Already have an account? </p>
         <Link className="underline" href={"/auth/signin"}>
-        Sign In
+         Sign In
         </Link>
       </div>
     </div>
