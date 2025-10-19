@@ -1,5 +1,7 @@
 'use client';
 
+import { BACKEND_URL } from "@/lib/constants";
+
 import {
   Conversation,
   ConversationContent,
@@ -44,6 +46,7 @@ import {
   ReasoningTrigger,
 } from '@/components/ai-elements/reasoning';
 import { Loader } from '@/components/ai-elements/loader';
+import { DefaultChatTransport } from 'ai';
 
 const models = [
   {
@@ -60,7 +63,13 @@ const ChatAI = () => {
   const [input, setInput] = useState('');
   const [model, setModel] = useState<string>(models[0].value);
   const [webSearch, setWebSearch] = useState(false);
-  const { messages, sendMessage, status, regenerate } = useChat();
+
+  const transport = new DefaultChatTransport({
+    api: `${BACKEND_URL}/chat`,
+  });
+  
+  const { messages, sendMessage, status, regenerate } = useChat({transport});
+  console.log(messages);
 
   const handleSubmit = (message: PromptInputMessage) => {
     const hasText = Boolean(message.text);
