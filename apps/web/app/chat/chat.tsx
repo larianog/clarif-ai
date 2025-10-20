@@ -112,7 +112,7 @@ const ChatAI = () => {
               <PromptInputActionMenu>
               </PromptInputActionMenu>
             </PromptInputTools>
-            <PromptInputSubmit disabled={!input && !status} status={status} />
+            <PromptInputSubmit disabled={!input && !status} status={status as any} />
           </PromptInputFooter>
         </PromptInput>
       </div>
