@@ -47,4 +47,56 @@ export class ChatService {
       },
     ];
   }
+
+  async extractText(file: File){
+    try {
+      
+      // Convert file to base64
+      const bytes = await file.arrayBuffer();
+      const buffer = Buffer.from(bytes);
+      const base64Image = buffer.toString('base64');
+      
+      // Create proper data URL based on file type
+      const mimeType = file.type || 'image/jpeg'; // fallback to jpeg if type is not available
+      const base64Url = `data:${mimeType};base64,${base64Image}`;
+  
+      const response = await this.client.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "user",
+            content: [
+              {
+                type: "text",
+                text: `Extract text from the image/document with high precision.
+                
+                Return two sections:
+                First section: Identify the document and resume of what is about.
+                Second section: The text extracted from the document.`
+              },
+              {
+                type: "image_url",
+                image_url: {
+                  url: base64Url
+                }
+              }
+            ]
+          }
+        ]
+      });
+  
+      // Extract text from response
+      const extractedText = response.choices[0]?.message?.content?.trim() || '';
+      
+      // Log for debugging
+      console.log('OpenAI Response:', {extractedText});
+  
+      return extractedText;
+  
+    } catch (error: unknown) {
+      const err = error as Error;
+      console.error('OpenAI OCR Error:', err.message);
+      return err;
+    }
+  }
 }

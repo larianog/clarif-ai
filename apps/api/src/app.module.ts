@@ -7,10 +7,13 @@ import { UserModule } from './user/user.module';
 import { ChatModule } from './chat/chat.module';
 import { ChatController } from './chat/chat.controller';
 import { ChatService } from './chat/chat.service';
+import { UploadModule } from './upload/upload.module';
+import { UploadController } from './upload/upload.controller';
+import { UploadService } from './upload/upload.service';
 
 @Module({
-  imports: [AuthModule, UserModule, ChatModule],
-  controllers: [AppController, ChatController],
-  providers: [AppService, PrismaService, ChatService],
+  imports: [AuthModule, UserModule, ChatModule, UploadModule],
+  controllers: [AppController, ChatController, UploadController],
+  providers: [AppService, PrismaService, ChatService, UploadService],
 })
 export class AppModule {}
