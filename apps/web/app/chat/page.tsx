@@ -13,6 +13,7 @@ const ChatPage = () => {
         ClarifAI
         </h1>
         <p>An image-to-text application integrated with a chatbot.</p>
+        <p>Accepted file extensions: png, jpeg, gif and webp.</p>
 
         <UploadButton></UploadButton>
     
