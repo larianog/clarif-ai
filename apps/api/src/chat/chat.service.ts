@@ -8,7 +8,7 @@ export class ChatService {
     baseURL: 'https://openrouter.ai/api/v1',
   });
 
-  async getChatCompletion(messages: any[], model?: string, webSearch?: boolean) {
+  async getChatCompletion(messages: any[]) {
     // Convert messages from AI SDK format to OpenAI format
     const formattedMessages = messages.map((m) => {
       const content = Array.isArray(m.parts)
@@ -27,6 +27,16 @@ export class ChatService {
 
     // Extract the assistant’s message text
     const assistantText = response.choices?.[0]?.message?.content || '';
+
+    console.log(assistantText);
+    const uimessage = [
+        {
+          id: crypto.randomUUID(),
+          role: 'assistant',
+          parts: [{ type: 'text', text: assistantText }],
+        },
+      ]; 
+    console.log(uimessage[0].parts);
 
     // Return in AI SDK format (UIMessage)
     return [

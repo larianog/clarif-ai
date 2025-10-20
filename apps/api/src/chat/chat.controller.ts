@@ -7,15 +7,8 @@ export class ChatController {
 
   @Post()
   async getChat(@Body() body: any) {
-    const { messages, model, webSearch } = body;
+    const { messages } = body;
 
-    const assistantMessages = await this.chatService.getChatCompletion(messages, model, webSearch);
-
-    console.log(assistantMessages[0].parts);
-
-    // Return as JSON array of messages (user + assistant)
-    return {
-      messages: [...messages, ...assistantMessages],
-    };
+    return await this.chatService.getChatCompletion(messages);
   }
 }
