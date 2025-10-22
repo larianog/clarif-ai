@@ -78,10 +78,12 @@ You can explore a live demo of the project here: [ClarifAI - Vercel App Demo](ht
 </ol>
 
 ## Tech Stack
-Frontend: Next.js, TypeScript, TailwindCSS
-Backend: NestJS, Prisma ORM, PostgreSQL
-AI Integration: OpenRouter (GPT-4o-mini)
-Infrastructure: Turborepo
+<ul>
+  <li>Frontend: Next.js, TypeScript, TailwindCSS</li>
+  <li>Backend: NestJS, Prisma ORM, PostgreSQL</li>
+  <li>AI Integration: OpenRouter (GPT-4o-mini)</li>
+  <li>Infrastructure: Turborepo</li>
+</ul>
 
 ## Roadmap
 This features will be implemented in the future:
