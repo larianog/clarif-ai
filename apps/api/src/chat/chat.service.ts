@@ -25,19 +25,8 @@ export class ChatService {
       ],
     });
 
-    // Extract the assistant’s message text
     const assistantText = response.choices?.[0]?.message?.content || '';
 
-    const uimessage = [
-        {
-          id: crypto.randomUUID(),
-          role: 'assistant',
-          parts: [{ type: 'text', text: assistantText }],
-        },
-      ]; 
-    console.log(uimessage[0].parts);
-
-    // Return in AI SDK format (UIMessage)
     return [
       {
         id: crypto.randomUUID(),
@@ -84,27 +73,16 @@ export class ChatService {
         ]
       });
 
-      const assistantText = response.choices?.[0]?.message?.content || '';  
-      
-      // Log for debugging
-
-      const uimessage = [
-        {
-          id: crypto.randomUUID(),
-          role: 'assistant',
-          parts: [{ type: 'text', text: assistantText }],
-        },
-      ]; 
-    console.log(uimessage);
-
-    // Return in AI SDK format (UIMessage)
+    const assistantText = response.choices?.[0]?.message?.content || '';  
+    
     return [
-      {
-        id: crypto.randomUUID(),
-        role: 'assistant',
-        parts: [{ type: 'text', text: assistantText }],
-      },
-    ];
+    {
+      id: crypto.randomUUID(),
+      role: 'assistant',
+      parts: [{ type: 'text', text: assistantText }],
+    },
+  ];
+
   } catch (error: unknown) {
     const err = error as Error;
     console.error('OpenAI OCR Error:', err.message);

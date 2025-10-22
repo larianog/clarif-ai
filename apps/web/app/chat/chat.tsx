@@ -33,10 +33,7 @@ interface ChatAIProps {
 
 const ChatAI = ( { messages, setMessages } : ChatAIProps) => {
   const [input, setInput] = useState('');
-  //const [messages, setMessages] = useState<UIMessage[]>([]);
-
   const [status, setStatus] = useState('ready');
-  
 
   const handleSubmit = async (message: PromptInputMessage) => {
     const textContent = message.text || "";
@@ -63,7 +60,7 @@ const ChatAI = ( { messages, setMessages } : ChatAIProps) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 relative size-full h-screen">
+    <div className="max-w-4xl mx-auto p-6 relative size-full h-screen overflow-hidden">
       <div className="flex flex-col h-full">
         <Conversation className="h-full">
           <ConversationContent>

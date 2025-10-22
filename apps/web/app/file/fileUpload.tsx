@@ -40,7 +40,7 @@ const UploadButton = ({ onUploadMessage }: UploadButtonProps) => {
       onUploadMessage([{
         id: uuidv4(),
         role: "assistant",
-        parts: [{ type: "text", text: "❌ Upload failed. Please try again." }],
+        parts: [{ type: "text", text: "Upload failed. Please try again." }],
       }]);
 
     } finally {
