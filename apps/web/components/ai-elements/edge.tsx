@@ -116,11 +116,11 @@ const Animated = ({ id, source, target, markerEnd, style }: EdgeProps) => {
   );
 
   const [edgePath] = getBezierPath({
-    sourceX: sx,
-    sourceY: sy,
+    sourceX: sx as number,
+    sourceY: sy as number,
     sourcePosition: sourcePos,
-    targetX: tx,
-    targetY: ty,
+    targetX: tx as number,
+    targetY: ty as number,
     targetPosition: targetPos,
   });
 
