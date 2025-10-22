@@ -53,7 +53,7 @@ const UploadButton = ({ onUploadMessage }: UploadButtonProps) => {
       <Input
         type="file"
         onChange={handleFileChange}
-        accept=".pdf,.txt,.docx"
+        accept=".png,.jpeg,.gif, .webp"
         className="hidden"
         id="file-input"
       />
