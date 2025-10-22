@@ -6,36 +6,42 @@ A prototype of a web application with NextJs and NestJs for extracting text from
 To run locally this project, follow this steps:
 
 <ol>
-  <li><b>Clone the repository</b></li>
-  <li><b>Set up your environment variables</b>
+  <li><b>Clone the repository</b>
+    
+    
+    git clone https://github.com/your-username/clarif-ai.git
+    cd clarif-ai
+    
+  </li>
+  <li><b>Set up environment variables</b>
   
-  Create a .env file for the front-end and back-end applications.
+  You’ll need two <code>.env</code> files — one for the backend and another for the frontend..
 
-  a. Back-end related environment variables
+  a. Backend environment variables
   
-  A file ```.env``` to be installed inside the folder ```/api```.
+  Create a file named <code>.env</code> inside <code>apps/api</code>:
   
   ```sh
   #Your database URL for connecting with your database.
-  DATABASE_URL = ****
+  DATABASE_URL = "your_database_url_here"
   
   #Your OpenRouter API key for connecting with a LLM model
-  OPENROUTER_API_KEY = ***
+  OPENROUTER_API_KEY = "your_openrouter_api_key_here"
   ```
 
-  b. Front-end related environment variables
+  b. Frontend environment variables
 
-  A file ```.env``` to be installed inside the folder ```/web```.
+  Create a file named <code>.env</code> inside <code>apps/web</code>:
   
   ```sh
   #The back-end url for POST requests.
-  NEXT_PUBLIC_BACKEND_URL = ***
+  NEXT_PUBLIC_BACKEND_URL ="http://localhost:8000"
   ````
   </li>
   
-  <li><b>Install the dependencies</b>
+  <li><b>Install dependencies</b>
 
-  Install all the independencies by running.
+  Install all required dependencies from the root directory:
 
       npm install
 
@@ -43,7 +49,7 @@ To run locally this project, follow this steps:
 
   <li><b>Install prisma client and migrate database</b>
 
-  Then, generate prisma client service and migrate the schema to your database by running:
+  Navigate to the backend directory and generate the Prisma client, then apply migrations:
 
     cd apps/api
     npm prisma generate
@@ -53,7 +59,7 @@ To run locally this project, follow this steps:
 
   <li><b>Run the project</b>
 
-  Go back to the apps/ directory, then run:
+  Return to the root directory and start both applications using Turborepo:
 
     npm run dev
 
@@ -61,14 +67,27 @@ To run locally this project, follow this steps:
 
 </ol> 
 
-## Run a demo
-To see a demo of how the project works, access [ClarifAI - Vercel App Demo](https://clarif-ai-nine.vercel.app/).
+## Demo
+You can explore a live demo of the project here: [ClarifAI - Vercel App Demo](https://clarif-ai-nine.vercel.app/).
 
-For using the chatbot, you need to create a login in the sign up page, then, sign in, and then you'll be redirected to the chatbot page.
-  
-## To Be Continued
-This features will be implemented in the future:
+### How to use:
 <ol>
-  <li>Chatbot history</li>
-  <li>Strong authentication, roles, jwt token and cookies.</li>
-</ol> 
+  <li>Go to the Sign Up page and create an account.</li>
+  <li>Log in using your credentials.</li>
+  <li>You’ll be redirected to the chatbot interface, where you can upload an image and view the extracted text in real time.</li>
+</ol>
+
+## Tech Stack
+Frontend: Next.js, TypeScript, TailwindCSS
+Backend: NestJS, Prisma ORM, PostgreSQL
+AI Integration: OpenRouter (GPT-4o-mini)
+Infrastructure: Turborepo
+
+## Roadmap
+This features will be implemented in the future:
+
+<ol>
+  <li>🗂️ Persistent chat history for each user</li>
+  <li>🔐 Advanced authentication with roles, JWT tokens, and cookies</li>
+  <li>📄 Download the conversation  and text extracted as PDF.</li>
+</ol>
