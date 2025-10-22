@@ -37,29 +37,26 @@ To run locally this project, follow this steps:
 
   Install all the independencies by running.
 
-    ```sh
-    npm install
-    ````
+      npm install
+
   </li>
 
   <li><b>Install prisma client and migrate database</b>
 
   Then, generate prisma client service and migrate the schema to your database by running:
 
-    ```sh
     cd apps/api
     npm prisma generate
     npm prisma migrate dev
-    ```
+
   </li>
 
   <li><b>Run the project</b>
 
   Go back to the apps/ directory, then run:
 
-    ```sh
     npm run dev
-    ```
+
   </li>
 
 </ol> 
