@@ -82,7 +82,7 @@ export async function signIn(
       accessToken: result.accessToken,
       refreshToken: result.refreshToken,
     });*/
-    redirect("/");
+    redirect("/chat");
   } else {
     return {
       message:
