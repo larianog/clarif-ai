@@ -9,11 +9,11 @@ To run locally this project, follow this steps:
   <li><b>Clone the repository</b></li>
   <li><b>Set up your environment variables</b>
   
-  Create a .env file for each directory, containing the following variables:
+  Create a .env file for the front-end and back-end applications.
 
-  a. Back-end related environment variables required:
+  a. Back-end related environment variables
   
-  (Inside the folder /api)
+  A file ```.env``` to be installed inside the folder ```/api```.
   
   ```sh
   #Your database URL for connecting with your database.
@@ -23,9 +23,9 @@ To run locally this project, follow this steps:
   OPENROUTER_API_KEY = ***
   ```
 
-  b. Front-end related environment variables required:
-  
-  (Inside the folder /web)
+  b. Front-end related environment variables
+
+  A file ```.env``` to be installed inside the folder ```/web```.
   
   ```sh
   #The back-end url for POST requests.
@@ -33,9 +33,35 @@ To run locally this project, follow this steps:
   ````
   </li>
   
-  <li><b>Run the project</b>
-  
+  <li><b>Install the dependencies</b>
+
+  Install all the independencies by running.
+
+    ```sh
+    npm install
+    ````
   </li>
+
+  <li><b>Install prisma client and migrate database</b>
+
+  Then, generate prisma client service and migrate the schema to your database by running:
+
+    ```sh
+    cd apps/api
+    npm prisma generate
+    npm prisma migrate dev
+    ```
+  </li>
+
+  <li><b>Run the project</b>
+
+  Go back to the apps/ directory, then run:
+
+    ```sh
+    npm run dev
+    ```
+  </li>
+
 </ol> 
 
 ## Run a demo
