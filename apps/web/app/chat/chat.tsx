@@ -26,11 +26,17 @@ import { Loader } from '@/components/ai-elements/loader';
 import { UIMessage } from "@/lib/app/ui-message.interface";
 import createChatCompletion from "@/lib/createChatCompletion";
 
-const ChatAI = () => {
+interface ChatAIProps {
+  messages: UIMessage[];
+  setMessages: React.Dispatch<React.SetStateAction<UIMessage[]>>;
+}
+
+const ChatAI = ( { messages, setMessages } : ChatAIProps) => {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<UIMessage[]>([]);
+  //const [messages, setMessages] = useState<UIMessage[]>([]);
 
   const [status, setStatus] = useState('ready');
+  
 
   const handleSubmit = async (message: PromptInputMessage) => {
     const textContent = message.text || "";

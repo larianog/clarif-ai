@@ -28,7 +28,6 @@ export class ChatService {
     // Extract the assistant’s message text
     const assistantText = response.choices?.[0]?.message?.content || '';
 
-    console.log(assistantText);
     const uimessage = [
         {
           id: crypto.randomUUID(),
@@ -68,7 +67,7 @@ export class ChatService {
             content: [
               {
                 type: "text",
-                text: `Extract text from the image/document with high precision.
+                text: `Extract text from the image/document with high precision, answer in portuguese.
                 
                 Return two sections:
                 First section: Identify the document and resume of what is about.
@@ -84,19 +83,32 @@ export class ChatService {
           }
         ]
       });
-  
-      // Extract text from response
-      const extractedText = response.choices[0]?.message?.content?.trim() || '';
+
+      const assistantText = response.choices?.[0]?.message?.content || '';  
       
       // Log for debugging
-      console.log('OpenAI Response:', {extractedText});
-  
-      return extractedText;
-  
-    } catch (error: unknown) {
-      const err = error as Error;
-      console.error('OpenAI OCR Error:', err.message);
-      return err;
-    }
+
+      const uimessage = [
+        {
+          id: crypto.randomUUID(),
+          role: 'assistant',
+          parts: [{ type: 'text', text: assistantText }],
+        },
+      ]; 
+    console.log(uimessage);
+
+    // Return in AI SDK format (UIMessage)
+    return [
+      {
+        id: crypto.randomUUID(),
+        role: 'assistant',
+        parts: [{ type: 'text', text: assistantText }],
+      },
+    ];
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('OpenAI OCR Error:', err.message);
+    return err;
+  }
   }
 }

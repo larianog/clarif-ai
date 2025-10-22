@@ -45,16 +45,3 @@ export class UploadController {
           return result;
         }
 }
-      
-
-   /* @Post()
-    async upload(@Body() res){
-        const { formData } = await res.formData();
-        const file = formData.get('file') as File;
-        
-        if (!file) {
-            return NextResponse.json({ error: 'No file provided' }, { status: 400 });
-        }
-
-        return this.chatService.extractText(file);
-    }*/

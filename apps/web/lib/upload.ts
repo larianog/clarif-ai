@@ -1,6 +1,7 @@
+import { UIMessage } from "./app/ui-message.interface";
 import { BACKEND_URL } from "./constants";
 
-export async function uploadFile(file: File): Promise<{ filename: string }> {
+export async function uploadFile(file: File): Promise<UIMessage[]> {
   if (!file) throw new Error('No file selected.');
 
   const formData = new FormData();
@@ -16,5 +17,6 @@ export async function uploadFile(file: File): Promise<{ filename: string }> {
     throw new Error(`Upload failed: ${res.status} - ${errorText}`);
   }
 
-  return res.json();
+  const data = await res.json()
+  return data;
 }
