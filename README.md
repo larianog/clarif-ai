@@ -70,6 +70,9 @@ To run locally this project, follow this steps:
 ## Demo
 You can explore a live demo of the project here: [ClarifAI - Vercel App Demo](https://clarif-ai-nine.vercel.app/).
 
+⚠️ Note:
+The backend is deployed on Render (Free Plan), which may cause API requests to take up to 50 seconds to complete due to cold starts and limited processing power.
+
 ### How to use:
 <ol>
   <li>Go to the Sign Up page and create an account.</li>
